@@ -6,6 +6,8 @@ import mysql.connector
 import datetime
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient  # initialize a serial RTU client instance
 
+# CÓDIGO PARA RASTREAR A CURVA I-V NA USINA FV
+
 # Inicializa as variáveis globais
 numSeriesFV = 4
 
