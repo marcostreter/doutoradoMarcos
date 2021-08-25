@@ -22,13 +22,13 @@ tempSolmetric = '{0:.3g}'.format(float(vlArray[1, 1]))
 tensaoSolmetric = [float(i) for i in vlArray[3:, 0]]
 correnteSolmetric = [float(i) for i in vlArray[3:, 1]]
 
-# Definindo variáveis
+# Inicializa de variáveis
 tensaoTracer = np.zeros(497)
 correnteTracer = np.zeros(497)
 dbClima = "s" + str(serieFV) + "_clima"
 dbCurva = "s" + str(serieFV) + "_curva"
 
-# Seleciona os parâmetros climáticos no banco de dados
+# Seleciona os parâmetros climáticos no banco de dados MySQL
 dbCursor.execute("SELECT * FROM " + dbClima + "." + tabName)
 result = dbCursor.fetchall()
 irradTracer = (result[0][2]-388)*0.942632
@@ -36,7 +36,7 @@ irradTracer = '{0:.4g}'.format(irradTracer)
 tempTracer = result[0][1]/100
 tempTracer = '{0:.3g}'.format(tempTracer)
 
-# Seleciona os parâmetros elétricos no banco de dados
+# Seleciona os parâmetros elétricos no banco de dados MySQL
 dbCursor.execute("SELECT * FROM " + dbCurva + "." + tabName)
 result = dbCursor.fetchall()
 
