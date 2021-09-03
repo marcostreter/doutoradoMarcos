@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 # Determina a tabela MySQL que será plotada
 serieFV = 1
-tabName = "tab_2021_8_19_14_0_2"
+tabName = "tab_2021_8_27_16_0_1"
 
 # Importa o arquivo CSV e salva em uma variável do tipo pandas dataframe
-df = pd.read_csv("C:/Users/marco/Downloads/Trace - 8-19-2021 01-43 PM.csv")
+df = pd.read_csv("C:/Users/marco/Downloads/Trace - 8-27-2021 04-00 PM.csv")
 vl = df.values.tolist()
 
 # Inicializa a conexão com o banco de dados
