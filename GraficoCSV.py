@@ -34,7 +34,7 @@ PmaxIVcomercial = max(potenciaIVcomercial)
 ar_IVprototipoClima = np.array(vl_IVprototipoClima)
 ar_IVprototipoCurva = np.array(vl_IVprototipoCurva)
 irradIVprototipo = (ar_IVprototipoClima[0, 2] - 388) * 0.942632
-tempprototipo = ar_IVprototipoClima[0, 1] / 100
+tempIVprototipo = ar_IVprototipoClima[0, 1] / 100
 tensaoIVprototipo = [float(i) for i in ((ar_IVprototipoCurva[3:, 1] - 18.5) * 0.220188659)/24]
 correnteIVprototipo = [float(i) for i in (ar_IVprototipoCurva[3:, 2] - 10.0) * 0.002139045]
 
@@ -44,6 +44,15 @@ for x in range(len(correnteIVprototipo)):
     potenciaIVprototipo.append(correnteIVprototipo[x] * tensaoIVprototipo[x])
 
 PmaxIVprototipo = max(potenciaIVprototipo)
+
+# Imprime na tela alguns valores de referência
+print()
+print("%%%%%%%%%% TRAÇADOR DE CURVAS I-V: COMERCIAL / PROTÓTIPO %%%%%%%%%%")
+print("Irradiância (W/m^2): " + str(int(irradIVcomercial)) + " / " + str(int(irradIVprototipo)))
+print("Temperatura (°C): %.0f" % float(tempIVcomercial) + " / " + str(int(tempIVprototipo)))
+print("Corrente de curto-circuito (A): %.2f" % correnteIVcomercial[0] + " / " + "%.2f" % correnteIVprototipo[0])
+print("Tensão de circuito aberto (V): %.2f" % tensaoIVcomercial[len(tensaoIVcomercial) - 1] + " / " + "%.2f" % tensaoIVprototipo[len(tensaoIVprototipo) - 1])
+print("Potência máxima (W): %.2f" % PmaxIVcomercial + " / " + "%.2f" % PmaxIVprototipo)
 
 # Plota os gráficos da curva I-V
 plt.plot(tensaoIVcomercial, correnteIVcomercial, 'o', label="Traçador de curvas I-V comercial. Pmax: " + str(int(PmaxIVcomercial)) + " W")
